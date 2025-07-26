@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}<title>Profile</title>{% endblock %}
+{% block body %}
+{% include 'navbar.html' %}
+<div class="max-w-xl mx-auto mt-10 p-8 bg-white rounded shadow">
+    <h1 class="text-2xl font-bold mb-4">Welcome, {{ user.get_full_name|default:user.username }}!</h1>
+    <p class="mb-2 text-gray-700">This is your profile page.</p>
+    <ul class="mt-4 space-y-2">
+        <li><span class="font-semibold">Username:</span> {{ user.username }}</li>
+        <li><span class="font-semibold">Email:</span> {{ user.email }}</li>
+        <li><span class="font-semibold">First Name:</span> {{ user.first_name }}</li>
+        <li><span class="font-semibold">Last Name:</span> {{ user.last_name }}</li>
+    </ul>
+</div>
+{% endblock %}

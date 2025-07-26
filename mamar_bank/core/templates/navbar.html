@@ -1,0 +1,44 @@
+<nav class="bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <!-- Left: Logo -->
+            <div class="flex items-center flex-shrink-0">
+                <a href="/" class="flex items-center">
+                    <svg class="h-8 w-8 text-white mr-2" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    <span class="text-white font-bold text-xl tracking-wide">Mamar Bank</span>
+                </a>
+            </div>
+            <!-- Center: Main navigation -->
+            <div class="flex-1 flex justify-center">
+                {% if user.is_authenticated %}
+                <div class="flex space-x-6">
+                    <a href="/accounts/report/"
+                        class="text-white hover:bg-blue-700 hover:text-white px-4 py-2 rounded-md text-base font-medium transition">Report</a>
+                    <a href="/accounts/withdraw/"
+                        class="text-white hover:bg-blue-700 hover:text-white px-4 py-2 rounded-md text-base font-medium transition">Withdraw</a>
+                    <a href="/accounts/deposit/"
+                        class="text-white hover:bg-blue-700 hover:text-white px-4 py-2 rounded-md text-base font-medium transition">Deposit</a>
+                </div>
+                {% endif %}
+            </div>
+            <!-- Right: Profile/Logout or Register/Login -->
+            <div class="flex items-center space-x-4">
+                {% if user.is_authenticated %}
+                <a href="/accounts/profile/"
+                    class="text-white hover:bg-blue-700 hover:text-white px-4 py-2 rounded-md text-base font-medium transition">Profile</a>
+                <a href="/accounts/logout/"
+                    class="text-white hover:bg-red-600 hover:text-white px-4 py-2 rounded-md text-base font-medium transition">Logout</a>
+                {% else %}
+                <a href="/accounts/register/"
+                    class="text-white hover:bg-blue-700 hover:text-white px-4 py-2 rounded-md text-base font-medium transition">Register</a>
+                <a href="/accounts/login/"
+                    class="text-white hover:bg-blue-700 hover:text-white px-4 py-2 rounded-md text-base font-medium transition">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
